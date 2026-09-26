@@ -10,7 +10,7 @@
 - **カテゴリ**：生産性（Productivity）。ルビふりと同じ。「アクセシビリティ」も当てはまる
 - **言語**：日本語（主）。英語の掲載文も下に用意した（ストアの「追加言語」で登録できる）。ただし拡張の画面は日本語のみ
 - **公開範囲**：一般公開（ルビふりと同じ）
-- **プライバシーポリシーURL**：<https://nishigaki-source.github.io/google-slides-reader/>（`docs/index.html` を GitHub Pages で公開。リポジトリを公開してから有効になる）
+- **プライバシーポリシーURL**：<https://nishigaki-source.github.io/google-slides-reader/>（`docs/index.html` を GitHub Pages で公開済み）
 
 ## 概要（短い説明、132文字以内）
 
@@ -136,7 +136,7 @@ To read the slide text and speaker notes of Google Slides presentations aloud.
 ## 提出・公開のチェックリスト
 
 - [x] Chrome ウェブストア デベロッパーアカウント登録（ルビふりと同じアカウント。拡張機能の上限は 3 個のうち 2 個使用中）
-- [ ] リポジトリを公開し、GitHub Pages（`main` の `/docs`）でプライバシーポリシーを公開
+- [x] リポジトリを公開し、GitHub Pages（`main` の `/docs`）でプライバシーポリシーを公開（2026-09-27）
 - [ ] `npm run build:store-zip` で作った `google-slides-reader.zip` をアップロード（新しいアイテム）
 - [ ] 掲載文・カテゴリ・スクリーンショット・プロモーションタイル・プライバシーポリシーURLを入力
 - [ ] 権限の使用理由・単一の目的・プライバシーへの取り組みを入力
