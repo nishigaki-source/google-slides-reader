@@ -1,0 +1,6 @@
+.DS_Store
+*.pem
+*.crx
+*.zip
+dist-store/
+design/store/panel.html

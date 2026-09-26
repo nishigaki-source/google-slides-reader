@@ -1,0 +1,87 @@
+<!doctype html>
+<!--
+  Chrome ウェブストア用のスクリーンショット（1280x800）。
+  左はGoogleスライドの編集画面を模したもの、右は本物のサイドパネル（panel.html、撮影用の仮の chrome.* で表示）。
+  書き出し: npm run store-images（?scene=reading / ?scene=settings）
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1280px; height: 800px; overflow: hidden; font-family: 'Hiragino Sans', system-ui, sans-serif; background: #f9fbfd; color: #1f1f1f; display: flex; }
+  .app { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .top { height: 64px; display: flex; align-items: center; gap: 12px; padding: 0 16px; }
+  .doc-icon { width: 28px; height: 36px; border-radius: 4px; background: #f4b400; }
+  .doc-title { font-size: 18px; }
+  .menus { font-size: 13px; color: #444; margin-top: 2px; letter-spacing: .02em; }
+  .toolbar { height: 40px; margin: 0 12px; border-radius: 20px; background: #edf2fa; }
+  .main { flex: 1; display: flex; min-height: 0; padding: 12px 0 0; }
+  .film { width: 150px; padding: 4px 12px 0 16px; display: flex; flex-direction: column; gap: 12px; }
+  .thumb { display: flex; gap: 6px; align-items: flex-start; font-size: 11px; color: #555; }
+  .thumb div { width: 112px; height: 63px; background: #fff; border: 1px solid #dadce0; border-radius: 4px; padding: 6px; }
+  .thumb div i { display: block; height: 5px; background: #d0d7e2; border-radius: 2px; margin-bottom: 5px; }
+  .thumb.current div { border: 2px solid #f4b400; }
+  .stage { flex: 1; display: flex; flex-direction: column; align-items: center; min-width: 0; padding-right: 20px; }
+  .slide { width: 680px; height: 382px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); padding: 36px 44px; position: relative; }
+  .slide h1 { font-size: 30px; font-weight: 700; color: #16324f; border-left: 6px solid #16324f; padding-left: 14px; }
+  .timeline { position: absolute; left: 44px; right: 44px; top: 160px; }
+  .timeline .line { height: 3px; background: #d5dbe3; margin: 40px 0 0; }
+  .cols { display: flex; justify-content: space-between; position: relative; top: -52px; }
+  .col { width: 180px; text-align: center; }
+  .col b { display: block; font-size: 17px; color: #16324f; margin-bottom: 26px; }
+  .col .dot { width: 14px; height: 14px; border-radius: 50%; background: #0aa39a; margin: 0 auto 16px; }
+  .col p { font-size: 13px; line-height: 1.6; color: #333; }
+  .notes { width: 680px; margin-top: 16px; background: #fff; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #333; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+  .notes small { display: block; color: #777; font-size: 11px; margin-bottom: 4px; }
+  .panel { width: 380px; height: 800px; background: #fff; border-left: 1px solid #dadce0; display: flex; flex-direction: column; }
+  .panel-head { height: 48px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border-bottom: 1px solid #eee; font-size: 14px; }
+  .panel-head img { width: 20px; height: 20px; border-radius: 5px; }
+  .panel-head span { flex: 1; }
+  .panel iframe { flex: 1; border: 0; width: 100%; }
+</style>
+</head>
+<body>
+  <div class="app">
+    <div class="top">
+      <div class="doc-icon"></div>
+      <div>
+        <div class="doc-title">新システム導入のご案内</div>
+        <div class="menus">ファイル　編集　表示　挿入　表示形式　スライド　配置　ツール</div>
+      </div>
+    </div>
+    <div class="toolbar"></div>
+    <div class="main">
+      <div class="film">
+        <div class="thumb">2<div><i></i><i style="width:70%"></i></div></div>
+        <div class="thumb">3<div><i></i><i style="width:60%"></i><i style="width:80%"></i></div></div>
+        <div class="thumb current">4<div><i style="width:50%"></i><i></i></div></div>
+        <div class="thumb">5<div><i style="width:65%"></i><i></i><i style="width:40%"></i></div></div>
+        <div class="thumb">6<div><i></i><i style="width:75%"></i></div></div>
+      </div>
+      <div class="stage">
+        <div class="slide">
+          <h1>導入スケジュール</h1>
+          <div class="timeline">
+            <div class="line"></div>
+            <div class="cols">
+              <div class="col"><b>2026年10月</b><div class="dot"></div><p>社内説明会と、<br>操作マニュアルの公開</p></div>
+              <div class="col"><b>2026年11月</b><div class="dot"></div><p>試験運用を開始し、<br>各部署から意見を集めます。</p></div>
+              <div class="col"><b>2026年12月</b><div class="dot"></div><p>全社での<br>本番運用を開始</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="notes"><small>スピーカーノート</small>試験運用の期間は1か月です。意見は専用のフォームで受け付けます。</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><img src="../icon-master-512.png" alt=""><span>よみあげ for Googleスライド</span>✕</div>
+    <iframe id="panel"></iframe>
+  </div>
+  <script>
+    const scene = new URLSearchParams(location.search).get('scene') ?? 'reading';
+    document.getElementById('panel').src = `panel.html?scene=${scene}`;
+  </script>
+</body>
+</html>

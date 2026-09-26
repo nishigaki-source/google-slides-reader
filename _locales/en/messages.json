@@ -1,0 +1,23 @@
+{
+  "extName": {
+    "message": "Yomiage for Google Slides"
+  },
+  "extDescription": {
+    "message": "Reads Google Slides text and speaker notes aloud, then moves to the next slide automatically."
+  },
+  "actionTitle": {
+    "message": "Yomiage (open side panel)"
+  },
+  "cmdTogglePlay": {
+    "message": "Play / pause"
+  },
+  "cmdNextSlide": {
+    "message": "Next slide"
+  },
+  "cmdPrevSlide": {
+    "message": "Previous slide"
+  },
+  "cmdStop": {
+    "message": "Stop"
+  }
+}

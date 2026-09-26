@@ -1,0 +1,66 @@
+<!doctype html>
+<!--
+  Chrome ウェブストアのプロモーションタイル（小 440x280・マーキー 1400x560）。
+  構成と配色はルビふり for Googleスライドのタイルにそろえている。
+  書き出し: npm run store-images（?tile=small / ?tile=marquee）
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<style>
+  :root { --bg: #faf9f3; --ink: #1d1f24; --muted: #6b6e73; --orange: #f2b233; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Hiragino Sans', sans-serif; background: #fff; }
+  .tile { position: relative; overflow: hidden; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .tile.show { display: flex; }
+  .lockup { display: flex; align-items: center; text-align: left; }
+  .icon { display: block; border-radius: 22%; }
+  .wordmark { font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .sub { font-weight: 600; color: var(--muted); letter-spacing: 0.01em; }
+  .bar { background: var(--orange); }
+  .copy { font-weight: 500; color: var(--muted); }
+  .dots { position: absolute; background-image: radial-gradient(var(--orange) var(--dot), transparent calc(var(--dot) + 0.1px)); opacity: .55; -webkit-mask-image: radial-gradient(circle at 100% 100%, #000 30%, transparent 72%); }
+
+  #small { width: 440px; height: 280px; }
+  #small .lockup { gap: 18px; }
+  #small .icon { width: 80px; height: 80px; box-shadow: 0 6px 18px rgba(29,31,36,.18); }
+  #small .wordmark { font-size: 52px; }
+  #small .sub { font-size: 15px; margin-top: 10px; }
+  #small .bar { width: 36px; height: 4px; border-radius: 2px; margin: 26px 0 13px; }
+  #small .copy { font-size: 14px; }
+  #small .dots { --dot: 1.6px; right: -40px; bottom: -40px; width: 200px; height: 170px; background-size: 14px 14px; }
+
+  #marquee { width: 1400px; height: 560px; }
+  #marquee .lockup { gap: 44px; }
+  #marquee .icon { width: 184px; height: 184px; box-shadow: 0 14px 40px rgba(29,31,36,.2); }
+  #marquee .wordmark { font-size: 124px; }
+  #marquee .sub { font-size: 34px; margin-top: 22px; }
+  #marquee .bar { width: 72px; height: 7px; border-radius: 4px; margin: 52px 0 26px; }
+  #marquee .copy { font-size: 30px; }
+  #marquee .dots { --dot: 3px; right: -80px; bottom: -80px; width: 560px; height: 420px; background-size: 26px 26px; }
+</style>
+</head>
+<body>
+  <div class="tile" id="small">
+    <div class="dots"></div>
+    <div class="lockup">
+      <img class="icon" src="../icon-master-512.png" alt="" />
+      <div><div class="wordmark">よみあげ</div><div class="sub">for Googleスライド</div></div>
+    </div>
+    <div class="bar"></div>
+    <div class="copy">スライドとノートを、声で読み上げ</div>
+  </div>
+  <div class="tile" id="marquee">
+    <div class="dots"></div>
+    <div class="lockup">
+      <img class="icon" src="../icon-master-512.png" alt="" />
+      <div><div class="wordmark">よみあげ</div><div class="sub">for Googleスライド</div></div>
+    </div>
+    <div class="bar"></div>
+    <div class="copy">スライドとノートを、声で読み上げ。読み終えたら次のスライドへ。</div>
+  </div>
+  <script>
+    document.getElementById(new URLSearchParams(location.search).get('tile') ?? 'small').classList.add('show');
+  </script>
+</body>
+</html>

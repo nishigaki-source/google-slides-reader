@@ -1,0 +1,78 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "version": "0.4.0",
+  "description": "__MSG_extDescription__",
+  "default_locale": "ja",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "__MSG_actionTitle__",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "tts",
+    "sidePanel",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://docs.google.com/presentation/*"
+  ],
+  "side_panel": {
+    "default_path": "src/sidepanel/sidepanel.html"
+  },
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.google.com/presentation/d/*"
+      ],
+      "js": [
+        "src/lib/reading-order.js",
+        "src/lib/page-data.js",
+        "src/lib/pptx.js",
+        "src/lib/slides-page.js",
+        "src/content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "toggle-play": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "__MSG_cmdTogglePlay__"
+    },
+    "next-slide": {
+      "suggested_key": {
+        "default": "Alt+Shift+Right"
+      },
+      "description": "__MSG_cmdNextSlide__"
+    },
+    "prev-slide": {
+      "suggested_key": {
+        "default": "Alt+Shift+Left"
+      },
+      "description": "__MSG_cmdPrevSlide__"
+    },
+    "stop": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "__MSG_cmdStop__"
+    }
+  }
+}

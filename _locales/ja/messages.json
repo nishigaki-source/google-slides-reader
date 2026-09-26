@@ -1,0 +1,23 @@
+{
+  "extName": {
+    "message": "よみあげ for Googleスライド"
+  },
+  "extDescription": {
+    "message": "Googleスライドの本文とスピーカーノートを音声で読み上げ、読み終えたら次のスライドへ自動で進みます。"
+  },
+  "actionTitle": {
+    "message": "よみあげ（サイドパネルを開く）"
+  },
+  "cmdTogglePlay": {
+    "message": "再生／一時停止"
+  },
+  "cmdNextSlide": {
+    "message": "次のスライドへ"
+  },
+  "cmdPrevSlide": {
+    "message": "前のスライドへ"
+  },
+  "cmdStop": {
+    "message": "停止"
+  }
+}

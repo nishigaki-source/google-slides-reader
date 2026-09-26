@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>スライド読み上げ</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header>
+    <div id="position" class="position">-</div>
+    <div id="deck-state" class="deck-state"></div>
+    <button id="refresh" class="link" title="ページを開いた後にスライドを編集したら押してください（数十秒かかります）">本文とノートを取り直す</button>
+  </header>
+
+  <div id="message" class="message" hidden></div>
+
+  <nav class="controls">
+    <button id="prev" title="前のスライド">⏮</button>
+    <button id="play" class="primary" title="再生">▶ 再生</button>
+    <button id="stop" title="停止">⏹</button>
+    <button id="next" title="次のスライド">⏭</button>
+  </nav>
+
+  <main id="reading" class="reading"></main>
+
+  <details id="settings" class="settings" open>
+    <summary>設定</summary>
+    <label>読む内容
+      <select id="target">
+        <option value="both">本文とノート</option>
+        <option value="body">本文だけ</option>
+        <option value="notes">ノートだけ</option>
+      </select>
+    </label>
+    <label class="check"><input id="auto-advance" type="checkbox"> 読み終えたら次のスライドへ進む</label>
+    <label>スライド間の間 <input id="gap" type="number" min="0" max="10" step="0.5"> 秒</label>
+    <label>音声 <select id="voice"></select></label>
+    <label>速度 <input id="rate" type="range" min="0.5" max="2" step="0.1"> <span id="rate-value"></span></label>
+    <label class="check"><input id="highlight-word" type="checkbox"> 読んでいる語を強調する</label>
+    <p class="hint">語の強調は Kyoko などの端末内の音声で使えます（Google 日本語では文単位の強調だけになります）。</p>
+  </details>
+
+  <details id="dictionary-section" class="settings">
+    <summary>読み方の辞書 <span id="dictionary-count" class="count"></span></summary>
+    <p class="hint">スライドの文字を、指定した読み方で読み上げます。画面の表示は変わりません。</p>
+    <div class="dict-head" aria-hidden="true"><span>スライドの文字</span><span>読み方</span></div>
+    <div id="dictionary-rows" class="dict-rows"></div>
+    <p id="dictionary-dup" class="hint warn" hidden>オレンジ色の行は、同じ文字が上の行にも登録されています。上の行の読み方が使われます。</p>
+    <button id="dictionary-add" class="add">＋ 語句を追加</button>
+  </details>
+
+  <details id="shortcuts-section" class="settings">
+    <summary>キーボードショートカット</summary>
+    <p class="hint">スライドショーを全画面にしていても使えます。サイドパネルが閉じていれば開きます。</p>
+    <dl id="shortcuts" class="shortcuts"></dl>
+    <button id="edit-shortcuts" class="link">ショートカットを変更する</button>
+  </details>
+
+  <script src="../lib/speech-text.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

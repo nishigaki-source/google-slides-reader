@@ -1,0 +1,76 @@
+:root {
+  --fg: #202124;
+  --sub: #5f6368;
+  --line: #dadce0;
+  --accent: #1a73e8;
+  --accent-bg: #e8f0fe;
+  --warn: #b06000;
+  --error: #d93025;
+  --bg: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e8eaed;
+    --sub: #9aa0a6;
+    --line: #3c4043;
+    --accent: #8ab4f8;
+    --accent-bg: #1f2a3c;
+    --warn: #fdd663;
+    --error: #f28b82;
+    --bg: #202124;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; padding: 12px; font: 14px/1.6 system-ui, sans-serif; color: var(--fg); background: var(--bg); }
+button, select, input { font: inherit; color: inherit; }
+
+header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.position { font-size: 18px; font-weight: bold; }
+.deck-state { color: var(--sub); font-size: 12px; flex: 1; }
+.deck-state.loading { color: var(--warn); }
+.deck-state.error { color: var(--error); }
+button.link { border: none; background: none; padding: 0; color: var(--accent); cursor: pointer; font-size: 12px; }
+button.link:disabled { color: var(--sub); cursor: default; }
+
+.message { margin-top: 8px; padding: 6px 8px; border-radius: 4px; background: var(--accent-bg); font-size: 13px; }
+.message.error { color: var(--error); }
+
+.controls { display: flex; gap: 8px; margin: 12px 0; }
+.controls button { flex: 0 0 auto; min-width: 44px; height: 40px; border: 1px solid var(--line); border-radius: 20px; background: var(--bg); cursor: pointer; font-size: 16px; }
+.controls button.primary { flex: 1; background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: bold; }
+.controls button:disabled { opacity: .4; cursor: default; }
+
+.reading { border-top: 1px solid var(--line); padding-top: 8px; min-height: 120px; }
+.reading h2 { font-size: 11px; color: var(--sub); margin: 8px 0 2px; font-weight: normal; }
+.reading .source { font-size: 11px; color: var(--warn); }
+.reading p { margin: 0 0 2px; padding: 2px 6px; border-radius: 4px; }
+.reading p.current { background: var(--accent-bg); outline: 1px solid var(--accent); }
+.reading p mark { background: var(--accent); color: var(--bg); border-radius: 3px; padding: 0 1px; }
+.reading p.done { color: var(--sub); }
+.reading .empty { color: var(--sub); }
+
+.settings { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 8px; }
+.settings summary { cursor: pointer; color: var(--sub); }
+.settings label { display: block; margin: 8px 0; }
+.settings label.check { display: flex; align-items: center; gap: 6px; }
+.settings select { max-width: 100%; }
+.settings input[type=number] { width: 4em; }
+
+.hint { color: var(--sub); font-size: 12px; margin: 4px 0; }
+.shortcuts { display: grid; grid-template-columns: 1fr max-content; gap: 2px 12px; margin: 4px 0 8px; }
+.shortcuts dt { color: var(--fg); }
+.shortcuts dd { margin: 0; font-family: ui-monospace, monospace; color: var(--sub); }
+
+.count { color: var(--sub); font-size: 12px; }
+.dict-head, .dict-row { display: grid; grid-template-columns: 1fr 1fr 32px 32px; gap: 4px; align-items: center; }
+.dict-head { font-size: 11px; color: var(--sub); margin-top: 8px; }
+.dict-rows { display: grid; gap: 4px; margin: 2px 0 8px; }
+.dict-row input { width: 100%; min-width: 0; padding: 4px 6px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+.dict-row input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+.dict-row.dup input.from { border-color: var(--warn); }
+.dict-row button { height: 28px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); cursor: pointer; }
+.dict-row button:disabled { opacity: .4; cursor: default; }
+.dict-empty { color: var(--sub); font-size: 12px; }
+button.add { border: 1px dashed var(--line); border-radius: 4px; background: none; color: var(--accent); padding: 4px 10px; cursor: pointer; }
+.hint.warn { color: var(--warn); }
